@@ -17,13 +17,14 @@ function getPosts() {
 
 }
 
-function createPost(post) {
+function createPost(post, callback) {
     setTimeout(() => { 
         posts.push(post);
+        callback();
     }, 2000)
 }
 
-getPosts();
+// getPosts();
 /* The DOM is already painted so we won't be able to see the result
 we were expecting
 
@@ -36,4 +37,4 @@ actual:
 'Can Paddy continue his title run'
 'How much more can we expect from the CHAMPPPP!!'*/
 
-createPost({ title: 'Tom is back', author: 'Chael Sonnen'});
+createPost({ title: 'Tom is back', author: 'Chael Sonnen'}, getPosts);
